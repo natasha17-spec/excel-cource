@@ -1,1 +1,2 @@
-# excel-cource
+# excel-course
+*learn*
