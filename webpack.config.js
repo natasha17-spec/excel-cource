@@ -25,12 +25,12 @@ module.exports = {
             filename: 'bundle.[hash].css'
         }),
         new HTMLWebpackPlugin({
-            template: "index.html"
+            template: "public/index.html"
         }),
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'src/favicon.ico'),
+                    from: path.resolve(__dirname, 'src/public/favicon.ico'),
                     to: "dest"
                 },
             ]
