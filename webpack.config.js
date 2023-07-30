@@ -15,8 +15,8 @@ module.exports = {
     resolve: {
         extensions: ['.js'],
         alias: {
-          '@': path.resolve(__dirname, 'src'),
-          '@core': path.resolve(__dirname, 'src/core')
+            '@': path.resolve(__dirname, 'src'),
+            '@core': path.resolve(__dirname, 'src/core')
         }
     },
     plugins: [
@@ -25,23 +25,37 @@ module.exports = {
             filename: 'bundle.[hash].css'
         }),
         new HTMLWebpackPlugin({
-            template: "public/index.html"
+            template: "index.html"
         }),
         new CopyPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, 'src/public/favicon.ico'),
-                    to: "dest"
+                    from: path.resolve(__dirname, 'src/favicon.ico'),
+                    to: "dist"
                 },
             ]
         })
     ],
-    // module: {
-    //     rules: [
-    //         {
-    //             test: /\.css$/i,
-    //             use: [MiniCssExtractPlugin.loader, "css-loader"],
-    //         },
-    //     ],
-    // },
+    module: {
+        rules: [
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                   MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "sass-loader",
+                ],
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    }
 }
