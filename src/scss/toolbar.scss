@@ -16,11 +16,6 @@
   }
 
   .line {
-    width: 0.25px;
-    height: 25px;
-    border: 0.5px solid $border-color;
-    bottom: 3px;
-    position: relative;
-    margin: 0 5px;
+    @include line($border-color);
   }
 }

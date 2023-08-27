@@ -7,7 +7,6 @@
   display: inline-block;
   color: rgba(0,0,0, .7);
   border-radius: 10%;
-  bottom: 3px;
 
   span {
     font-size: 18px;
@@ -22,4 +21,12 @@
     background-color: #eee;
     cursor: pointer;
   }
+}
+
+@mixin line($border: #c0c0c0){
+  width: 0.25px;
+  height: 25px;
+  border: 0.5px solid $border;
+  position: relative;
+  margin: 0 5px;
 }
