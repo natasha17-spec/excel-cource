@@ -7,7 +7,8 @@
   },
   "rules": {
     "object-curly-spacing": ["error", "always"],
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "max-len": ["error", { "code": 120 }]
   },
   "extends": ["eslint:recommended", "google"]
 }
